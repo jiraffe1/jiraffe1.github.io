@@ -4,7 +4,7 @@ var wordIndex;
 
 function setup() {
   createCanvas(600, 600);
-  createA("https://jiraffe1.github.io/web/game.html", back);
+  createA("https://jiraffe1.github.io/web/game.html", "back");
   createP("Description \n ultimate educatoin");
 }
 
