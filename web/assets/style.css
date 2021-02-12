@@ -9,4 +9,7 @@ html, body {
 canvas {
     display: block;
 }
+a {
+	text-align: center;
+}
 
