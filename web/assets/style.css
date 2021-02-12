@@ -8,6 +8,6 @@ html, body {
 canvas {
     display: block;
 }
-p, a, h {
+p, a, h1, h2, h3{
     text-align: center;
 }
