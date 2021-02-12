@@ -8,3 +8,6 @@ html, body {
 canvas {
   display: block;
 }
+p {
+  text-align: center;
+}
