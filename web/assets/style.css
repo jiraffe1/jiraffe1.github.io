@@ -3,11 +3,11 @@ html *
    font-family: Helvetica !important;
 }
 html, body {
-  padding: 0;
+    padding: 0;
 }
 canvas {
-  display: block;
+    display: block;
 }
-p {
-  text-align: center;
+p, a, h {
+    text-align: center;
 }
