@@ -4,10 +4,9 @@ html *
 }
 html, body {
     padding: 0;
+	text-align: center;
 }
 canvas {
     display: block;
 }
-p, a, h1, h2, h3{
-    text-align: center;
-}
+
