@@ -24,6 +24,6 @@ h3 {
 body{
 	background-image: url('background.png');
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment: center;
 	background-size: 50% 100%;
 }
