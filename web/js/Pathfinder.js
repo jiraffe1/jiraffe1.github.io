@@ -309,12 +309,14 @@ function mouseClicked() {
 
 function setup() {
   createCanvas(400, 400);
-  noStroke();
-  rectMode(CENTER);
-  textAlign(CENTER, CENTER);
-  textSize(20);
+
   createA("https://jiraffe1.github.io/web/game.html", "back");
   createP("click to place and remove blocks");
   createP("press any key to mak more cars");
   createP("they follow your mouse");
+  
+    noStroke();
+  rectMode(CENTER);
+  textAlign(CENTER, CENTER);
+  textSize(20);
 }
