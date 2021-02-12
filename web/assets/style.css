@@ -1,6 +1,8 @@
 html *
 {
    font-family: Helvetica !important;
+   font-size: 180%; !important
+   color: Azure;
 }
 html, body {
     padding: 0;
@@ -8,8 +10,20 @@ html, body {
 }
 canvas {
     display: block;
+	align: center;
 }
 a {
 	text-align: center;
 }
-
+h1 {
+	border:2px solid Tomato;
+}
+h3 {
+	border:2px solid DodgerBlue;
+}
+body{
+	background-image: url('background.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
