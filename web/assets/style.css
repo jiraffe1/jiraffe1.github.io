@@ -10,7 +10,7 @@ html, body {
 }
 canvas {
     display: block;
-	align: center;
+	canvas-align: center;
 }
 a {
 	text-align: center;
