@@ -7,7 +7,7 @@ var img;
 var message = "Roshan is a nob";
 
 function preload() {
-  //font = loadFont("spin/Ubuntu-Title.ttf")
+  font = loadFont("spin/Ubuntu-Title.ttf")
   img = loadImage("world_map.png");
 }
 
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  background(40, 180, 200);
+  background(40, 180, 200, 1);
   
   rotX += 0.000;
   rotY += 0.01;
@@ -42,7 +42,7 @@ function draw() {
   
     fill(255, 0, 0);
   stroke(255, 0, 0);
-  //textFont(font);
+  textFont(font);
   text(message, -width/2, height/2-1);
 
 }
