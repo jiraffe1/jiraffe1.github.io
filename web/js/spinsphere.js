@@ -8,7 +8,7 @@ var message = "Roshan is a nob";
 
 function preload() {
   //font = loadFont("spin/Ubuntu-Title.ttf")
-  img = loadImage("spin/world_map.png");
+  img = loadImage("assets/world_map.png");
 }
 
 function setup() {
