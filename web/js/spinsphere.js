@@ -40,8 +40,8 @@ function draw() {
 
   pop();
   
-    fill(255, 0, 0);
-  stroke(255, 0, 0);
+    fill(255);
+  stroke(255);
   textFont(font);
   text(message, -width/2, height/2-1);
 
