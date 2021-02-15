@@ -3,9 +3,12 @@ var rotY = 0;
 var rotZ = 0;
 
 var font;
+var img;
+var message = "Roshan is a nob";
 
 function preload() {
   font = loadFont("Ubuntu-Title.ttf")
+  img = loadImage("world_map.png");
 }
 
 function setup() {
@@ -15,25 +18,24 @@ function setup() {
 function draw() {
   background(40, 180, 200);
   
-  rotX += 0.02;
+  rotX += 0.000;
   rotY += 0.01;
-  rotZ += 0.002;
+  rotZ += 0.000;
   
   push();
   
-  
+
   
   fill(50, 130, 0);
   stroke(20, 100, 0);
-  
-  strokeWeight(1);
+  noStroke();
   
   translate(0, 0, 10);
   
   rotateX(rotX);
   rotateY(rotY);
   rotateZ(rotZ);
-
+  texture(img);
   sphere(25, 16, 10);
 
   pop();
@@ -41,7 +43,6 @@ function draw() {
     fill(255, 0, 0);
   stroke(255, 0, 0);
   textFont(font);
-  textAlign(CENTER);
-  text("Roshan is a nob", width/2-39, height/2-1);
+  text(message, -width/2, height/2-1);
 
 }
