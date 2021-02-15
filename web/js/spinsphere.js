@@ -4,7 +4,7 @@ var rotZ = 0;
 
 var font;
 var img;
-var message = "Roshan is a nob";
+var message = "theEconomicWay";
 
 function preload() {
   font = loadFont("Ubuntu-Title.ttf")
