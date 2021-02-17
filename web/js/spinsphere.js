@@ -1,3 +1,5 @@
+/*
+
 var rotX = 0;
 var rotY = 0;
 var rotZ = 0;
@@ -46,3 +48,7 @@ function draw() {
   text(message, -width/2, height/2-1);
 
 }
+
+
+//If roshan ever does let me include this ill be ready
+*/
