@@ -17,10 +17,7 @@ a {
 	text-align: center;
 	color: Azure;
 }
-h1 {
-	border:2px solid DodgerBlue;
-}
-h3,h2 {
+h1, h2, h3 {
 	border:2px solid DodgerBlue;
 }
 body{
