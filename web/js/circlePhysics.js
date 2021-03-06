@@ -12,6 +12,7 @@ function setup(){
     createP("O - Create creature");
     createP("P - Create static square");
     createP("Left Mouse - Drag nodes");
+    createP("R - Reset")
     createA("https://jiraffe1.github.io/web/game.html", "back");
 }
 
