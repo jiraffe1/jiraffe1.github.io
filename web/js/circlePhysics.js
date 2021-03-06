@@ -7,6 +7,11 @@ function setup(){
     world=new Array();
     createCanvas(800, 600);
     addEdges();
+    createP("Q - Create ball");
+    createP("W - Create static ball");
+    createP("O - Create creature");
+    createP("P - Create static square");
+    createP("Left Mouse - Drag nodes");
     createA("https://jiraffe1.github.io/web/game.html", "back");
 }
 
