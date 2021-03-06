@@ -1,6 +1,6 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  createA("https://jiraffe1.github.io/game.html", "back")
+  createA("https://jiraffe1.github.io/web/game.html", "back")
 }
 
 function draw() {
