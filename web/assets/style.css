@@ -1,11 +1,6 @@
-@font-face {
-	font-family: banshrift-custom;
-	src: url(https://jiraffe1.github.io/web/assets/bahnschrift.ttf);
-}
-
 html *
 {
-   font-family: banshrift-custom, Helvetica, arial !important;
+   font-family: Helvetica, arial !important;
    font-size: 120% !important;
 }
 html, body {
