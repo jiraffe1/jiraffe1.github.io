@@ -5,7 +5,7 @@
 
 html *
 {
-   font-family: banshrift-custom !important;
+   font-family: banshrift-custom, Helvetica, arial !important;
    font-size: 120% !important;
 }
 html, body {
