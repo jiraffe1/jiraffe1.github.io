@@ -14,8 +14,12 @@ canvas {
 	margin: auto;
 }
 a {
+	background-color: azure;
+	color: DodgerBlue;
+	padding: 14px 25px;
 	text-align: center;
-	color: Azure;
+	text-decoration: none;
+	display: inline-block;
 }
 h1, h2, h3 {
 	border:2px solid DodgerBlue;
