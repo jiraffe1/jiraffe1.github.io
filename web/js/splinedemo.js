@@ -1,1 +1,109 @@
-var spline,stepSlider,maxVelSlider,tolSlider;function setup(){createCanvas(800,600),spline=new Spline,createP("Generation settings [Broken] Click to add nodes"),createP("StepSize"),stepSlider=createSlider(.1,2,.5,.05),createP("MaxVel"),maxVelSlider=createSlider(1,10,4,.05),createP("CurveTolerance"),tolSlider=createSlider(10,50,20,.05),createA("https://jiraffe1.github.io/web/game.html", "back"),stepSlider.mousePressed(recalculatePoints),tolSlider.mousePressed(recalculatePoints),maxVelSlider.mousePressed(recalculatePoints)}function draw(){background(255),spline.update(),updateSliders()}function updateSliders(){spline.step=stepSlider.value(),spline.tol=tolSlider.value(),spline.maxSpd=maxVelSlider.value()}function recalculatePoints(){background(255),spline.recalculatePoints(),spline.update()}var Spline=function(){this.ctrlpoints=new Array,this.track=new Array,this.step=.5,this.tol=20,this.debug=!0,this.maxSpd=4};function mouseClicked(){mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height&&(spline.ctrlpoints.push(new Node(mouseX,mouseY)),1!==spline.ctrlpoints.length&&spline.recalculatePoints())}Spline.prototype.recalculatePoints=function(){for(var e=0,t=this.ctrlpoints,i=createVector(t[0].x,t[0].y),s=createVector(t[0].x,t[0].y),r=createVector(0,0),l=createVector(t[t.length-1].x,t[t.length-1].y),n=0;n<800*t.length;n++){var o=createVector(i.x,i.y);o.sub(s);if(o.normalize(),o.mult(this.step),r.add(o),r.setMag(min(r.mag(),this.maxSpd)),s.add(r),dist(s.x,s.y,i.x,i.y)<this.tol&&(e++,i=createVector(this.ctrlpoints[e].x,this.ctrlpoints[e].y)),dist(s.x,s.y,l.x,l.y)<this.tol)break;this.track.push(new LineN(s.x,s.y))}},Spline.prototype.display=function(){strokeWeight(15);for(var e=1;e<this.track.length;e++)stroke(0,0,0),point(this.track[e].x,this.track[e].y);for(var t=0;t<this.ctrlpoints.length;t++)this.debug&&(stroke(100,100,100,100),strokeWeight(this.tol),point(this.ctrlpoints[t].x,this.ctrlpoints[t].y)),stroke(0,0,0),strokeWeight(3),0===e&&stroke(255,0,0),point(this.ctrlpoints[t].x,this.ctrlpoints[t].y)},Spline.prototype.update=function(){this.display()};var Node=function(e,t){this.x=e,this.y=t},LineN=function(e,t){this.x=e,this.y=t};
+var spline;
+
+var clearIt;
+var saveIt;
+var loadIt;
+
+function setup() {
+	createCanvas(800, 600);
+    removeElements();
+	spline = new Spline();
+    clearIt = createButton("Clear");
+    saveIt = createButton("Save as JSON [WIP]");
+    loadIt = createButton("Load JSON [WIP]");
+    clearIt.mousePressed(clearit);
+    saveIt.mousePressed(saveit);
+}
+
+function draw() {
+	background(255);
+	spline.update();
+}
+
+function clearit() {
+    setup();
+}
+
+function saveit() {
+
+}
+
+var Spline = function () {
+	this.ctrlpoints = new Array();
+	this.track = new Array();
+	this.step = 0.75;
+	this.tol = 20;
+	this.debug = true;
+	this.maxSpd = 5;
+};
+
+Spline.prototype.recalculatePoints = function () {
+	var iter = 0;
+	var pts = this.ctrlpoints;
+	var tgt = createVector(pts[0].x, pts[0].y);
+	var pos = createVector(pts[0].x, pts[0].y);
+	var vel = createVector(0, 0);
+	var last = createVector(pts[pts.length - 1].x, pts[pts.length - 1].y);
+
+	for (var k = 0; k < pts.length * 800; k++) {
+		var pl = createVector(tgt.x, tgt.y);
+		pl.sub(pos);
+		pl.normalize();
+		pl.mult(this.step);
+		vel.add(pl);
+		vel.setMag(min(vel.mag(), this.maxSpd));
+		pos.add(vel);
+
+		if (dist(pos.x, pos.y, tgt.x, tgt.y) < this.tol) {
+			iter++;
+			tgt = createVector(this.ctrlpoints[iter].x, this.ctrlpoints[iter].y);
+		}
+
+		if (dist(pos.x, pos.y, last.x, last.y) < this.tol) {
+			break;
+		}
+		this.track.push(new LineN(pos.x, pos.y));
+	}
+};
+
+Spline.prototype.display = function () {
+	strokeWeight(15);
+	for (var i = 1; i < this.track.length; i++) {
+		stroke(0, 0, 0);
+		point(this.track[i].x, this.track[i].y);
+	}
+
+	for (var j = 0; j < this.ctrlpoints.length; j++) {
+		if (this.debug) {
+			stroke(100, 100, 100, 100);
+			strokeWeight(this.tol);
+			point(this.ctrlpoints[j].x, this.ctrlpoints[j].y);
+		}
+
+		stroke(0, 0, 0);
+		strokeWeight(3);
+		if (i === 0) stroke(255, 0, 0);
+		point(this.ctrlpoints[j].x, this.ctrlpoints[j].y);
+	}
+};
+
+Spline.prototype.update = function () {
+	this.display();
+};
+
+function mouseClicked() {
+	if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+		spline.ctrlpoints.push(new Node(mouseX, mouseY));
+		if (spline.ctrlpoints.length !== 1) spline.recalculatePoints();
+	}
+}
+
+var Node = function (x, y) {
+	this.x = x;
+	this.y = y;
+};
+
+var LineN = function (x, y) {
+	this.x = x;
+	this.y = y;
+};
