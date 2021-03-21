@@ -10,7 +10,7 @@ function setup() {
 	spline = new Spline();
     clearIt = createButton("Clear");
     saveIt = createButton("Save as JSON [WIP]");
-    loadIt = createButton("Load JSON [WIP]");
+    loadIt = createFileInput(loadit);
     clearIt.mousePressed(clearit);
     saveIt.mousePressed(saveit);
 }
@@ -25,7 +25,26 @@ function clearit() {
 }
 
 function saveit() {
+    var JSON = {};
+    JSON.step = spline.step;
+    JSON.tol = spline.tol;
+    JSON.debug = spline.debug;
+    JSON.maxSpd = spline.maxSpd;
+    JSON.ctrlpoints = spline.ctrlpoints;
 
+    saveJSON(JSON, "myTrack.json");
+}
+
+function loadit(file) {
+    var loaded = loadJSON(file);
+    spline = new Spline();
+    spline.step = loaded.step;
+    spline.tol = loaded.tol;
+    spline.debug = loaded.debug;
+    spline.maxSpd = loaded.maxSpd;
+    spline.ctrlpoints = loaded.ctrlpoints;
+    spline.recalculatePoints();
+    console.log(spline);
 }
 
 var Spline = function () {
@@ -101,9 +120,11 @@ function mouseClicked() {
 var Node = function (x, y) {
 	this.x = x;
 	this.y = y;
+    this.id = "NODE";
 };
 
 var LineN = function (x, y) {
 	this.x = x;
 	this.y = y;
+    this.id = "POINT";
 };
