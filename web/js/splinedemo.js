@@ -2,7 +2,7 @@ var spline;
 
 var clearIt;
 var saveIt;
-var loadIt;
+//var loadIt;
 
 function setup() {
 	createCanvas(800, 600);
@@ -10,7 +10,7 @@ function setup() {
 	spline = new Spline();
     clearIt = createButton("Clear");
     saveIt = createButton("Save as JSON [WIP]");
-    loadIt = createFileInput(loadit);
+    //loadIt = createFileInput(loadit);
     clearIt.mousePressed(clearit);
     saveIt.mousePressed(saveit);
 }
