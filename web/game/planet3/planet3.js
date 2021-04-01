@@ -49,7 +49,6 @@ function draw(){
     }
     fill(255);
     text("create sun ? : " + buildSun, 20, 20);
-    createA("https://jiraffe1.github.io/web/game.html", "back");
 }
 
 function mousePressed(){

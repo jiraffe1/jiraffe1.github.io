@@ -1,1 +1,1 @@
-function setup(){createCanvas(windowWidth,windowHeight),createA("https://jiraffe1.github.io/web/game.html","back")}function draw(){background(mouseX/width*255,mouseY/width*255,mouseX*width/255)}
+function setup(){createCanvas(windowWidth,windowHeight)}function draw(){background(mouseX/width*255,mouseY/width*255,mouseX*width/255)}
