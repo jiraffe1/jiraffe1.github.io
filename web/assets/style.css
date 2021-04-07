@@ -13,6 +13,11 @@ canvas {
 	padding: 0;
 	margin: auto;
 }
+iframe {
+	display: block;
+	padding: 0;
+	margin: auto;
+}
 a {
 	background-color: azure;
 	color: DodgerBlue;
