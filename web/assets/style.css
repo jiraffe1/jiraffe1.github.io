@@ -10,12 +10,12 @@ html, body {
 }
 canvas {
     display: block;
-	padding: 0;
+	padding: 5px 5px;
 	margin: auto;
 }
 iframe {
 	display: block;
-	padding: 0;
+	padding: 5px 5px;
 	margin: auto;
 }
 a {
