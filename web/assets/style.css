@@ -26,6 +26,9 @@ a {
 	text-decoration: none;
 	display: inline-block;
 }
+input {
+    display: block;	
+}
 h1, h2, h3 {
 	border:2px solid DodgerBlue;
 }
