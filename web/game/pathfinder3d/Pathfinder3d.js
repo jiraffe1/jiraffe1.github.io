@@ -1,8 +1,13 @@
 var font;
+var rx = 0;
+var ry=  0;
+var rz = 0;
+var toggleDebugButton;
+var createCarsButton;
 var Settings = {
   NavRefresh: 3, //How often the Nav grid refreshes ( higher = less lag )
   MaxParticles: 10, //max number of particles ( more = more lag )
-  showDebug: true, //if the debug is shown
+  showDebug: false, //if the debug is shown
 }
 
 var Pset = {
@@ -68,10 +73,14 @@ function preload() {
 
 function setup() {
   createCanvas(400, 400, WEBGL);
-
+  showDebugButton = createButton("Toggle debug");
+  showDebugButton.mousePressed(toggleDebug);
+  createCarsButton = createButton("Create Cars");
+  createCarsButton.mousePressed(createCar);
+  createP("______");
   createA("https://jiraffe1.github.io/web/game.html", "back");
   createP("click to place and remove blocks");
-  createP("press any key to mak more cars");
+  createP("use WASD to rotate the world");
   createP("they follow your mouse");
 
   noStroke();
@@ -81,6 +90,23 @@ function setup() {
 }
 
 function draw() {
+  if(keyIsDown(65)) {
+    //a
+    rz += 0.05;
+  }
+  if(keyIsDown(68)) {
+    //d
+    rz-=0.05;
+  }
+  if(keyIsDown(87)) {
+    //w
+    rx -= 0.05;
+  }
+  if(keyIsDown(83)) {
+    //s
+    rx += 0.05;
+  }
+
   background(255, 255, 255, 100);
   if (walkers.length !== 0) {
     for (var j = 0; j < 100; j++) {
@@ -101,7 +127,11 @@ function draw() {
 
   fill(20);
   Movestor.length = constrain(Movestor.length, 0, Settings.MaxParticles);
+  rotateX(rx);
+  rotateY(ry);
+  rotateZ(rz);
   translate(-width/2, -height/2);
+
   for (var y = 0; y < 20; y++) {
     for (var x = 0; x < 20; x++) {
       if (navGrid[y][x] === "X") {
@@ -181,7 +211,7 @@ function mouseClicked() {
   }
 }
 
-function keyPressed() {
+function createCar() {
   for (var y = 0; y < 20; y++) {
     for (var x = 0; x < 20; x++) {
       if (grid[y][x] === "_" && navGrid[y][x] !== "_") {
@@ -339,4 +369,8 @@ walker.prototype.run = function() {
     walkers.push(
       new walker(this.x, this.y - 1));
   }
+}
+
+function toggleDebug() {
+  Settings.showDebug = !Settings.showDebug;
 }
