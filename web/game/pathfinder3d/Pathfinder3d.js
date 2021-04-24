@@ -267,7 +267,7 @@ var mover = function(position) {
 mover.prototype.show = function() {
   //fill(72, 184, 232, 250/(abs(this.XV)+abs(this.YV)) );
   fill(this.r, this.g, this.b, 250);
-
+  stroke(0, 0, 0);
   let nV = createVector(this.XV, this.YV);
   let delta = nV.heading();
   push();
