@@ -72,7 +72,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  createCanvas(600, 600, WEBGL);
   showDebugButton = createButton("Toggle debug");
   showDebugButton.mousePressed(toggleDebug);
   createCarsButton = createButton("Create Cars");
@@ -92,19 +92,19 @@ function setup() {
 function draw() {
   if(keyIsDown(65)) {
     //a
-    rz += 0.05;
+    rz -= 0.015;
   }
   if(keyIsDown(68)) {
     //d
-    rz-=0.05;
+    rz+=0.015;
   }
   if(keyIsDown(87)) {
     //w
-    rx -= 0.05;
+    rx -= 0.025;
   }
   if(keyIsDown(83)) {
     //s
-    rx += 0.05;
+    rx += 0.025;
   }
 
   background(255, 255, 255, 100);
@@ -130,7 +130,7 @@ function draw() {
   rotateX(rx);
   rotateY(ry);
   rotateZ(rz);
-  translate(-width/2, -height/2);
+  translate(-200, -200);
 
   for (var y = 0; y < 20; y++) {
     for (var x = 0; x < 20; x++) {
