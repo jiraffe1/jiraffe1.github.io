@@ -45,13 +45,13 @@ function preload() {
   m = false;
   dedMillisHasBeenSet = false;
   //font=loadFont("data/Monospaced.bold-48.vlw");
-  three = loadImage("data/Axy1-removebg-preview.png");
-  four = loadImage("data/Axy2-removebg-preview.png");
-  one = loadImage("data/Knify1-removebg-preview.png");
-  two = loadImage("data/Knify2-removebg-preview.png");
-  playerIdle = loadImage("data/Player_Idle-removebg-preview.png");
-  playerRun1 = loadImage("data/Player_Run1-removebg-preview.png");
-  lev = loadStrings("data/new level.txt");
+  three = loadImage("https://jiraffe1.github.io/web/game/shapeEscape/data/Axy1-removebg-preview.png");
+  four = loadImage("https://jiraffe1.github.io/web/game/shapeEscape/data/Axy2-removebg-preview.png");
+  one = loadImage("https://jiraffe1.github.io/web/game/shapeEscape/data/Knify1-removebg-preview.png");
+  two = loadImage("https://jiraffe1.github.io/web/game/shapeEscape/data/Knify2-removebg-preview.png");
+  playerIdle = loadImage("https://jiraffe1.github.io/web/game/shapeEscape/data/Player_Idle-removebg-preview.png");
+  playerRun1 = loadImage("https://jiraffe1.github.io/web/game/shapeEscape/data/Player_Run1-removebg-preview.png");
+  lev = loadStrings("https://jiraffe1.github.io/web/game/shapeEscape/data/level.txt");
 }
 
 function setup() {
