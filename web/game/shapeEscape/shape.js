@@ -155,7 +155,6 @@ function draw() {
     text("you survived " + round(dedMillis / 1000) + " seconds", 250, height - 200);
     if (dedMillis / 1000 > highScore / 1000 || highScore == 694201337) {
       highScore = dedMillis;
-      document.cookie= ("highscore"+highScore);
     }
     if (dedCounter > 500) {
       setup();
@@ -581,8 +580,7 @@ class Knify {
     this.lastPosX = new Array();
     this.lastPosY = new Array();
     this.position = new p5.Vector(blockSize * (w - 1), blockSize * (h - 1));
-    this.run = false;
-    startMillis = millis();
+
   }
 
   update() {
