@@ -10,7 +10,7 @@ var cursorX = 50;
 var actualX = 50;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth-60, windowHeight-60);
   world = engine.world;
   Engine.run(engine);
   
