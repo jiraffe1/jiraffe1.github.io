@@ -4,6 +4,7 @@ var blueScore = 0;
 var players = [];
 var ball;
 var teamColours;
+var showTargets = false;
 var behaviours = [
   "Shoot",
   "Fall Back",
@@ -18,6 +19,7 @@ var behaviours = [
   "Shoot",
   "Fall Back",
 ];
+var referee;
 var behaviourUpdate = 500;
 var camPos;
 var teamSize;
@@ -25,10 +27,12 @@ var teamSize;
 function setup() {
   teamSize = floor(random(11, 22));
   //createCanvas(1000, 600);
-  createCanvas(min(windowWidth - 50, 1200), min(windowHeight - 50, 800));
+  createCanvas(min(windowWidth - 50, 1200), min(windowHeight-50, 800));
+  referee = new Player(width/2, height/2 + 90, 3);
   camPos = new p5.Vector(width / 2, height / 2);
   ball = new Ball();
   teamColours = [color(255, 0, 0), color(0, 0, 255)];
+  teamColours = [color(255, 0, 0), color(0, 0, 255), color(100, 100, 100)];
 
   for (var i = 0; i < teamSize; i++) {
     players.push(new Player(random(0, width / 2), random(height), 1));
@@ -52,6 +56,8 @@ function draw() {
     new p5.Vector(width / 2 - ball.position.x, height / 2 - ball.position.y),
     0.04
   );
+  
+  //camPos = p5.Vector.lerp(camPos, new p5.Vector(width/2 - players[0].position.x, height/2 - players[0].position.y), 0.2);
 
   pitch();
   ball.display();
@@ -62,6 +68,8 @@ function draw() {
     players[i].display(i);
     // players[i].towardsBall();
   }
+  referee.update();
+  referee.display("Ref");
 
   push();
   fill(255);
@@ -76,6 +84,7 @@ function draw() {
   textSize(14);
   pop();
 }
+
 
 var Player = function (x, y, t) {
   this.position = new p5.Vector(x, y);
@@ -96,7 +105,9 @@ Player.prototype.display = function (number) {
     fill(teamColours[this.team - 1]);
   } else if (this.team == 2) {
     fill(teamColours[this.team - 1]);
-  }
+  } else if(this.team == 3) {
+    fill(teamColours[this.team - 1]);
+  } 
   //fill(100);
   stroke(20);
   rectMode(CENTER);
@@ -167,7 +178,7 @@ Player.prototype.update = function () {
     ball.velocity.add(tadd);
   }
 
-  if (frameCount % behaviourUpdate == 0 || frameCount == 3) {
+  if (frameCount % behaviourUpdate == 0 || frameCount == 3 && this.team != 3) {
     this.behaviour = behaviours[floor(random(behaviours.length))];
 
     if (this.behaviour == "Wait") {
@@ -195,6 +206,10 @@ Player.prototype.update = function () {
       }
     }
   }
+  
+  if(this.team == 3) {
+    this.behaviour = "Referee";
+  }
 
   if (this.behaviour == "Chase") {
     this.towardsBall();
@@ -204,7 +219,14 @@ Player.prototype.update = function () {
   } else if (this.behaviour == "Fall Back" || this.behaviour == "Goalkeep") {
     this.towardsTarget();
     this.attemptShoot();
-
+    push();
+    if(showTargets) {
+      noFill();
+      stroke(255, 0, 0);
+      strokeWeight(4);
+      ellipse(this.target.x, this.target.y, 35, 35);
+    }
+    pop();
     if (
       this.behaviour == "Fall Back" &&
       p5.Vector.dist(this.position, this.target) < 5
@@ -215,6 +237,10 @@ Player.prototype.update = function () {
         this.target = new p5.Vector(random(width / 2, width), random(height));
       }
     }
+  }
+  else if(this.behaviour == "Referee") {
+    this.target = new p5.Vector(ball.position.x, ball.position.y + 140);
+    this.towardsTarget();
   }
 
   this.position.add(this.velocity);
@@ -247,7 +273,12 @@ Player.prototype.towardsBall = function () {
 Player.prototype.towardsTarget = function () {
   var nv = new p5.Vector(this.position.x, this.position.y);
   var bv = new p5.Vector(this.target.x, this.target.y);
-  var acc = bv.sub(nv).setMag(0.4);
+  if(this.team != 3) {
+    var acc = bv.sub(nv).setMag(0.4);
+  }
+  else {
+    var acc = bv.sub(nv).setMag(1);
+  }
   this.velocity.add(acc);
 };
 
