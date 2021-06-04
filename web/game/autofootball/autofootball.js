@@ -31,7 +31,6 @@ function setup() {
   referee = new Player(width/2, height/2 + 90, 3);
   camPos = new p5.Vector(width / 2, height / 2);
   ball = new Ball();
-  teamColours = [color(255, 0, 0), color(0, 0, 255)];
   teamColours = [color(255, 0, 0), color(0, 0, 255), color(100, 100, 100)];
 
   for (var i = 0; i < teamSize; i++) {
