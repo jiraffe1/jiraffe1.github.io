@@ -41,6 +41,9 @@ var dedCounter = 0;
 var highScore = 694201337;
 var dedMillisHasBeenSet;
 
+var start = 0;
+var die = 0;
+
 function preload() {
   m = false;
   dedMillisHasBeenSet = false;
@@ -61,12 +64,13 @@ function setup() {
   //catch {
   //  console.log("cookie could not be loaded");
   //}
-  dedMillis = 0;
+  //dedMillis = millis();
   dedMillisHasBeenSet = false;
   //textFont(font);
   dedCounter = 0;
   mainMenu = true;
   stamina = 100;
+  start = millis();
   Knifies = new Array();
   Axies = new Array();
   navGrid = processing2jsNewNDimArray([w, h]);
@@ -146,15 +150,20 @@ function draw() {
     }
   }
   if (ded) {
+    if(dedMillisHasBeenSet == false) {
+      die = millis();
+      dedMillisHasBeenSet = true;
+    }
+
     background(255 - dedCounter, 0, 0);
     dedCounter += 2;
     fill(255);
     textSize(25);
-    text("a terrible atrocity was committed", 200, height / 2);
+    text("u got pwnd by a polygon", 200, height / 2);
     textSize(20);
-    text("you survived " + round(dedMillis / 1000) + " seconds", 250, height - 200);
-    if (dedMillis / 1000 > highScore / 1000 || highScore == 694201337) {
-      highScore = dedMillis;
+    text("you survived " + round((die-start) / 1000) + " seconds", 250, height - 200);
+    if ((die-start) / 1000 > highScore / 1000 || highScore == 694201337) {
+      highScore = die-start;
     }
     if (dedCounter > 500) {
       setup();
@@ -474,8 +483,8 @@ class Axy {
     if (this.compareIntVec(floor(player.x / blockSize), floor(player.y / blockSize), this.currentSquareX, this.currentSquareY) && !dedMillisHasBeenSet) {
       //console.log("atrocities were commited");
       ded = true;
-      dedMillis = millis() - startMillis;
-      dedMillisHasBeenSet = true;
+      //dedMillis = millis() - startMillis;
+      //dedMillisHasBeenSet = true;
     }
     for (var i = -1; i < 2; i++) {
       for (var j = -1; j < 2; j++) {
@@ -610,8 +619,8 @@ class Knify {
       //console.log("atrocities were commited");
       background(255, 0, 0);
       ded = true;
-      dedMillis = millis() - startMillis;
-      dedMillisHasBeenSet = true;
+      //dedMillis = millis() - startMillis;
+      //dedMillisHasBeenSet = true;
     }
     for (var i = -1; i < 2; i++) {
       for (var j = -1; j < 2; j++) {
