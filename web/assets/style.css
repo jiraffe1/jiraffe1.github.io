@@ -18,6 +18,9 @@ iframe {
 	padding: 5px 5px;
 	margin: auto;
 }
+input {
+	align-self: center;
+}
 a {
 	background-color: azure;
 	color: DodgerBlue;
