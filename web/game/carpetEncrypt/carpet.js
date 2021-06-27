@@ -38,11 +38,11 @@ function setup() {
 }
 
 function enc() {
-  document.getElementById("enc").innerHTML = encrypt(encodeText.value);
+  document.getElementById("enc").innerHTML = encrypt(encrypt(encodeText.value));
 }
 
 function dec() {
-  document.getElementById("dec").innerHTML = decrypt(decodeText.value);
+  document.getElementById("dec").innerHTML = decrypt(decrypt(decodeText.value));
 }
 
 function encrypt(t) {
