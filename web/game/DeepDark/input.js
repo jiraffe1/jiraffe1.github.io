@@ -1,0 +1,12 @@
+const Input = {
+	UP: 87,
+	DOWN: 83,
+	LEFT: 65,
+	RIGHT: 68,
+	ENTER: 13,
+	SPACE: 32,
+	UPARROW:38,
+	DOWNARROW:40,
+	RIGHTARROW:39,
+	LEFTARROW:37,
+}
