@@ -6,7 +6,7 @@ html *
 html, body {
     padding: 0;
 	color: Azure;
-  background-color: #224386;
+  background-color: lightgray
 }
 canvas {
     display: block;
