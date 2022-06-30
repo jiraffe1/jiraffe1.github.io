@@ -20,7 +20,7 @@ iframe {
 	margin: auto;
 }
 a {
-	background-color: rgb(63, 78, 128);
+	background-color: rgba(33, 55, 128, 0.664);
 	color: azure;
 	padding: 10px 15px;
 	border-radius: 25px;
