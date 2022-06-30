@@ -5,7 +5,7 @@ html *
 }
 html, body {
     padding: 0;
-	color: Azure;
+	color: black;
   background-color: lightgray
 }
 canvas {
