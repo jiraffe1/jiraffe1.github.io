@@ -1,7 +1,7 @@
 html *
 {
    font-family: Helvetica, arial !important;
-   font-size: 100% !important;
+   font-size: 110% !important;
 	
 }
 html, body {
@@ -22,7 +22,7 @@ iframe {
 a {
 	background-color: rgba(33, 55, 128, 0.664);
 	color: azure;
-	padding: 6px, 6px;
+	padding: 10px, 10px;
 	border-radius: 25px;
 	text-align: center;
 	text-decoration: none;
