@@ -19,7 +19,7 @@ iframe {
 	padding: 5px 5px;
 	margin: auto;
 }
-p {
+ul, p {
 	background: rgba(0, 128, 0, 0.3)
 }
 a {
