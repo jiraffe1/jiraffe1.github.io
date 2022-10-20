@@ -1,8 +1,11 @@
 html *
 {
    font-family: Helvetica, arial !important;
-   font-size: 100% !important;
+   font-size: 110% !important;
 	
+}
+ul, p {
+	background: rgba(60, 70, 161, 0.3)
 }
 html, body {
     padding: 0;
@@ -19,9 +22,7 @@ iframe {
 	padding: 5px 5px;
 	margin: auto;
 }
-ul, p {
-	background: rgba(0, 128, 0, 0.3)
-}
+
 a {
 	background-color: rgba(33, 55, 128, 0.664);
 	color: azure;
