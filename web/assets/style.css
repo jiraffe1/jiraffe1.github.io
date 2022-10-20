@@ -2,12 +2,13 @@ html *
 {
    font-family: Helvetica, arial !important;
    font-size: 110% !important;
-	
+	 text-align: center;
 }
 ul, p {
 	background: rgba(60, 70, 161, 0.3)
 }
 html, body {
+	
     padding: 0;
 	color: black;
   background-color: lightgray
