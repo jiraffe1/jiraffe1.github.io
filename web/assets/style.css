@@ -1,7 +1,7 @@
 html *
 {
    font-family: Helvetica, arial !important;
-   font-size: 120% !important;
+   font-size: 100% !important;
 	
 }
 html, body {
@@ -10,7 +10,7 @@ html, body {
   background-color: lightgray
 }
 canvas {
-    display: block;
+  display: block;
 	padding: 5px 5px;
 	margin: auto;
 }
@@ -18,6 +18,9 @@ iframe {
 	display: block;
 	padding: 5px 5px;
 	margin: auto;
+}
+p {
+	background: rgba(0, 128, 0, 0.3)
 }
 a {
 	background-color: rgba(33, 55, 128, 0.664);
